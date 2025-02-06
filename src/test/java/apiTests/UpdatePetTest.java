@@ -21,9 +21,9 @@ public class UpdatePetTest extends BaseTest { // BaseTest'ten extends edildi
         Response response = sendPutRequest(updatedRequestBody);
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200!");
 
+        // Güncellenen pet verisinin doğru olup olmadığını kontrol etme
         String updatedPetName = response.jsonPath().getString("name");
         Assert.assertEquals(updatedPetName, "Maxx", "Updated pet name does not match!");
-
         String updatedPetStatus = response.jsonPath().getString("status");
         Assert.assertEquals(updatedPetStatus, "sold", "Updated pet status does not match!");
     }
@@ -43,6 +43,7 @@ public class UpdatePetTest extends BaseTest { // BaseTest'ten extends edildi
         Response response = sendPutRequest(updatedRequestBody);
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200 when missing ID!");
 
+        // Güncellenen pet verisinin doğru olup olmadığını kontrol etme
         String missingPetName = response.jsonPath().getString("name");
         Assert.assertEquals(missingPetName, "Buddy Updated", "Pet name was not updated correctly!");
     }
@@ -91,6 +92,8 @@ public class UpdatePetTest extends BaseTest { // BaseTest'ten extends edildi
 
         Response updateResponse = sendPutRequest(updatedRequestBody);
         Assert.assertEquals(updateResponse.getStatusCode(), 200, "Expected status code 200!");
+
+        // Güncellenen pet verisinin doğru olup olmadığını kontrol etme
         Assert.assertEquals(updateResponse.jsonPath().getString("status"), "sold", "Status was not updated correctly!");
     }
 

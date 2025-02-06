@@ -14,6 +14,7 @@ public class BaseTest {
         RestAssured.baseURI = "https://petstore.swagger.io/v2";
     }
 
+    // POST request
     public Response sendPostRequest(String requestBody) {
         return given()
                 .contentType(ContentType.JSON)
@@ -24,6 +25,7 @@ public class BaseTest {
                 .extract().response();
     }
 
+    // PUT request
     public Response sendPutRequest(String requestBody) {
         return given()
                 .contentType(ContentType.JSON)
@@ -34,6 +36,7 @@ public class BaseTest {
                 .extract().response();
     }
 
+    // DELETE request
     public Response sendDeleteRequest(int petId) {
         return given()
                 .when()
@@ -42,6 +45,7 @@ public class BaseTest {
                 .extract().response();
     }
 
+    // GET request - int
     public Response sendGetRequest(int petId) {
         return given()
                 .when()
@@ -50,6 +54,7 @@ public class BaseTest {
                 .extract().response();
     }
 
+    // GET request - string
     public Response sendGetRequestString(String petId) {
         return given()
                 .when()

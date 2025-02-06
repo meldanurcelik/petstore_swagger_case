@@ -20,6 +20,8 @@ public class CreatePetTest extends BaseTest { // BaseTest'ten extends edildi
 
         Response response = sendPostRequest(requestBody);
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200!");
+
+        // Oluşturulan pet verisinin doğru olup olmadığını kontrol etme
         Assert.assertEquals(response.jsonPath().getString("name"), "Buddy", "Pet name does not match!");
     }
 
@@ -38,6 +40,8 @@ public class CreatePetTest extends BaseTest { // BaseTest'ten extends edildi
         Response response = sendPostRequest(requestBody);
 
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200 when pet name is empty!");
+
+        // Pet'in adının boş olduğunu kontrol etme
         String petName = response.jsonPath().getString("name");
         Assert.assertTrue(petName == null || petName.isEmpty(), "Pet name should be empty or null!");
     }
@@ -56,6 +60,8 @@ public class CreatePetTest extends BaseTest { // BaseTest'ten extends edildi
 
         Response response = sendPostRequest(requestBody);
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200 when status is empty!");
+
+        // Pet'in status'unun boş olduğunu kontrol etme
         String petStatus = response.jsonPath().getString("status");
         Assert.assertTrue(petStatus == null || petStatus.isEmpty(), "Pet status should be empty or null!");
     }
@@ -74,8 +80,10 @@ public class CreatePetTest extends BaseTest { // BaseTest'ten extends edildi
 
         Response response = sendPostRequest(requestBody);
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200 when photo URLs are empty!");
+
+        // Pet'in fotoğraf URL'lerinin boş olduğunu kontrol etme
         String photoUrls = response.jsonPath().getString("photoUrls");
-        Assert.assertTrue(photoUrls.equals("[]"), "Pet photo Urls should be []!");
+        Assert.assertTrue(photoUrls.equals("[]"), "Pet photo URLs should be empty or null!");
     }
 
     @Test
@@ -91,6 +99,10 @@ public class CreatePetTest extends BaseTest { // BaseTest'ten extends edildi
 
         Response response = sendPostRequest(requestBody);
         Assert.assertEquals(response.getStatusCode(), 500, "Expected status code 500 when ID is invalid!");
+
+        // Pet ID'sinin boş olduğunu kontrol etme
+        String petId = response.jsonPath().getString("id");
+        Assert.assertTrue(petId == null || petId.isEmpty(), "Pet ID should be empty or null!");
     }
 
     @Test
@@ -120,6 +132,8 @@ public class CreatePetTest extends BaseTest { // BaseTest'ten extends edildi
 
         Response response = sendPostRequest(requestBody);
         Assert.assertEquals(response.getStatusCode(), 400, "Expected status code 400 when category is missing!");
+
+        // Pet kategorisinin boş olduğunu kontrol etme
         String category = response.jsonPath().getString("category");
         Assert.assertTrue(category == null || category.isEmpty(), "Pet category should be empty or null!");
     }

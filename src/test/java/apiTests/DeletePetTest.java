@@ -16,7 +16,7 @@ public class DeletePetTest extends BaseTest { // BaseTest'ten extends edildi
         Response response = sendDeleteRequest(petId);
         Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200!");
 
-        // Pet silindikten sonra tekrar GET isteği atıp olmadığını doğrulayalım
+        // Silinen pet'in sistemde olmadığını kontrol etme
         Response getResponse = sendGetRequest(petId);
         Assert.assertEquals(getResponse.getStatusCode(), 404, "Deleted pet still exists!");
     }

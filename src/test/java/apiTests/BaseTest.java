@@ -23,4 +23,15 @@ public class BaseTest {
                 .then()
                 .extract().response();
     }
+
+    public Response sendPutRequest(String requestBody) {
+        return given()
+                .contentType(ContentType.JSON)
+                .body(requestBody)
+                .when()
+                .put("/pet")
+                .then()
+                .extract().response();
+
+    }
 }

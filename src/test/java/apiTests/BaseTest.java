@@ -32,6 +32,30 @@ public class BaseTest {
                 .put("/pet")
                 .then()
                 .extract().response();
-
     }
+
+    public Response sendDeleteRequest(int petId) {
+        return given()
+                .when()
+                .delete("/pet/" + petId)
+                .then()
+                .extract().response();
+    }
+
+    public Response sendGetRequest(int petId) {
+        return given()
+                .when()
+                .get("/pet/" + petId)
+                .then()
+                .extract().response();
+    }
+
+    public Response sendGetRequestString(String petId) {
+        return given()
+                .when()
+                .get("/pet/" + petId)
+                .then()
+                .extract().response();
+    }
+
 }

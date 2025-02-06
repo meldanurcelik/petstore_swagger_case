@@ -19,7 +19,7 @@ public class UpdatePetTest extends BaseTest { // BaseTest'ten extends edildi
                 "}";
 
         Response response = sendPutRequest(updatedRequestBody);
-        Assert.assertEquals(response.getStatusCode(), 200, "Status code is not 200!");
+        Assert.assertEquals(response.getStatusCode(), 200, "Expected status code 200!");
 
         String updatedPetName = response.jsonPath().getString("name");
         Assert.assertEquals(updatedPetName, "Maxx", "Updated pet name does not match!");

@@ -74,12 +74,12 @@ public class CreatePetTest extends BaseTest { // BaseTest'ten extends edildi
     @Test
     public void testCreatePetWithInvalidId() {
         String requestBody = "{\n" +
-                "  \"id\": -1,  // Geçersiz id\n" +
+                "  \"id\": -1,\n" +
                 "  \"category\": { \"id\": 0, \"name\": \"string\" },\n" +
                 "  \"name\": \"Pet1\",\n" +
                 "  \"photoUrls\": [\"url1\"],\n" +
                 "  \"tags\": [{ \"id\": 0, \"name\": \"tag1\" }],\n" +
-                "  \"status\": \"available\"\n" +
+                "  \"status\": \"available\", \n" +
                 "}";
 
         Response response = sendPostRequest(requestBody);
@@ -110,7 +110,7 @@ public class CreatePetTest extends BaseTest { // BaseTest'ten extends edildi
                 "  \"name\": \"Pet1\",\n" +
                 "  \"photoUrls\": [\"url1\"],\n" +
                 "  \"tags\": [{ \"id\": 0, \"name\": \"tag1\" }],\n" +
-                "  \"status\": \"available\"  // Eksik category \n" +
+                "  \"status\": \"available\", \n" +
                 "}";
 
         Response response = sendPostRequest(requestBody);
